@@ -21,8 +21,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * 登录过滤器
  */
 @Component
-public class LoginFilter extends ZuulFilter {
-
+public class LoginFilter  extends ZuulFilter {
 
     /**
      * 过滤器类型，前置过滤器
@@ -42,6 +41,7 @@ public class LoginFilter extends ZuulFilter {
 
         return 4;
     }
+
 
     /**
      * 过滤器是否生效
@@ -79,7 +79,7 @@ public class LoginFilter extends ZuulFilter {
 
         //JWT
         RequestContext requestContext =  RequestContext.getCurrentContext();
-        HttpServletRequest request = requestContext.getRequest();
+        HttpServletRequest  request = requestContext.getRequest();
 
         //token对象
         String token = request.getHeader("token");
@@ -97,5 +97,6 @@ public class LoginFilter extends ZuulFilter {
 
         return null;
     }
+
 
 }
